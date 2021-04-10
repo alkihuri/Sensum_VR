@@ -11,7 +11,8 @@ public class CanvasButtons : MonoBehaviour
     private void Start() {
         volume.profile.TryGetSettings(out _vignette);    
     }
-    public static void OpenScene(){
+    public void OpenScene(){
+        StartCoroutine(ShowHide());
     }
     private IEnumerator ShowHide(){
         DOTween.To(()=> _vignette.opacity.value, x=> _vignette.opacity.value= x, 1f, 1);
