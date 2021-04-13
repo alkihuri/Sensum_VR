@@ -6,11 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/test scene.unity
-    guid: 0ac5dddc0a7d2bd4f95dbf4e4560d8a8
-  - enabled: 1
     path: Assets/GoogleVR/Demos/Scenes/HelloVR.unity
     guid: bb36d2905dc634f1c9eecb35beecaca8
+  - enabled: 1
+    path: Assets/Scenes/IntroMVP.unity
+    guid: 0ac5dddc0a7d2bd4f95dbf4e4560d8a8
+  - enabled: 1
+    path: Assets/Scenes/1stLessonMVP.unity
+    guid: c10e0f6f2b6d846469ddf4d3a1b855c5
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 48db7134378f8c147aee60a5dae1aa06,
       type: 2}
