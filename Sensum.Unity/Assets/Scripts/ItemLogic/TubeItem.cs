@@ -3,27 +3,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TubeItem : MonoBehaviour , Iitem
+public class TubeItem : MonoBehaviour, Iitem
 {
 
-   [SerializeField,Range(0,100)] float _volume;
-   [SerializeField] LiquidType _liquid; 
-   [SerializeField,Range(1,10)] float  _speedOFFlow; 
-    [SerializeField, Range(1, 10)] float _density;
+    [SerializeField] public Liquid _water; // я просто не хотел get set логику прописывать пох пусть так и будет
+    [SerializeField] public Liquid _oil; // нах  безопастный код
+    [SerializeField] public Liquid _mercury;
+    [SerializeField] float _volumeOfThisTube;
+    [SerializeField, Range(0, 1)] float _waterPreSettings; 
+    [SerializeField, Range(0, 1)] float _mercuryPreSettings; 
+    [SerializeField, Range(0, 1)] float _oilPreSettings;
 
     #region fields innit part 
-    public float GetVolume()
+
+    private void Awake()
     {
-        return _volume;
-    }
-    public void SetLiquid(LiquidType t, float volume , float speedOfFlow, float density)
-    {
-        _liquid = t;
-        _volume = volume;
-        _speedOFFlow = speedOfFlow;
-        _density = _density;
+        _water = new Liquid("Water" );
+        _oil = new Liquid("Oil" );
+        _mercury = new Liquid("Mercury" );
     }
     #endregion
+
+    private void Start()
+    {
+         
+            _water.AddVolume(_waterPreSettings  );
+            _oil.AddVolume(_oilPreSettings);
+            _mercury.AddVolume(_mercuryPreSettings);
+        
+    }
+
+    public bool Fill(float amount, Liquid temp)
+    {
+        bool isPosiible = temp.GetVolume() + amount < _volumeOfThisTube;
+        if (isPosiible)
+            temp.AddVolume(amount);
+        return isPosiible;
+    }
+    public bool Dispense(float amount, Liquid temp)
+    {
+        bool isPosiible = temp.GetVolume() - amount > 0;
+        if (isPosiible)
+            temp.AddVolume(-amount);
+        return isPosiible;
+    }
+
     public void Attach()
     {
         throw new System.NotImplementedException();
@@ -46,11 +70,19 @@ public class TubeItem : MonoBehaviour , Iitem
 
     private void Update()
     {
+       // SyncVolumes();
         RenderVolume();
+    }
+
+    private void SyncVolumes()
+    {
+        _water.SetVolume(_waterPreSettings);
+        _oil.SetVolume(_oilPreSettings);
+        _mercury.SetVolume(_mercuryPreSettings);
     }
 
     private void RenderVolume()
     {
-        throw new NotImplementedException();
+        GetComponentInChildren<VolumesViewController>().SetView(_water, _oil, _mercury);
     }
 }

@@ -44,7 +44,7 @@ public class PlayerView : MonoBehaviour
         if (Input.GetButton("Fire1"))
             //  if(_camera.eulerAngles.x>30f && _camera.eulerAngles.x<90f)
         {
-            Vector3 moveForward = Camera.main.transform.TransformDirection(Vector3.forward);
+            Vector3 moveForward = Camera.main.transform.forward;
             transform.position += moveForward*Time.deltaTime * speed*Time.fixedDeltaTime;
             //   Debug.Log(transform.position);
         }
