@@ -6,46 +6,20 @@ using UnityEngine;
 public class TubeItem : MonoBehaviour, Iitem
 {
 
-    [SerializeField] public Liquid _water; // я просто не хотел get set логику прописывать пох пусть так и будет
-    [SerializeField] public Liquid _oil; // нах  безопастный код
-    [SerializeField] public Liquid _mercury;
+    [SerializeField] public Liquid _water;
     [SerializeField] float _volumeOfThisTube;
-    [SerializeField, Range(0, 1)] float _waterPreSettings; 
-    [SerializeField, Range(0, 1)] float _mercuryPreSettings; 
-    [SerializeField, Range(0, 1)] float _oilPreSettings;
+    [SerializeField, Range(0, 1)] float _waterPreSettings;
 
     #region fields innit part 
 
     private void Awake()
     {
-        _water = new Liquid("Water" );
-        _oil = new Liquid("Oil" );
-        _mercury = new Liquid("Mercury" );
+        _water = new Liquid("Water");
     }
     #endregion
 
     private void Start()
     {
-         
-            _water.AddVolume(_waterPreSettings  );
-            _oil.AddVolume(_oilPreSettings);
-            _mercury.AddVolume(_mercuryPreSettings);
-        
-    }
-
-    public bool Fill(float amount, Liquid temp)
-    {
-        bool isPosiible = temp.GetVolume() + amount < _volumeOfThisTube;
-        if (isPosiible)
-            temp.AddVolume(amount);
-        return isPosiible;
-    }
-    public bool Dispense(float amount, Liquid temp)
-    {
-        bool isPosiible = temp.GetVolume() - amount > 0;
-        if (isPosiible)
-            temp.AddVolume(-amount);
-        return isPosiible;
     }
 
     public void Attach()
@@ -70,19 +44,11 @@ public class TubeItem : MonoBehaviour, Iitem
 
     private void Update()
     {
-       // SyncVolumes();
         RenderVolume();
-    }
-
-    private void SyncVolumes()
-    {
-        _water.SetVolume(_waterPreSettings);
-        _oil.SetVolume(_oilPreSettings);
-        _mercury.SetVolume(_mercuryPreSettings);
     }
 
     private void RenderVolume()
     {
-        GetComponentInChildren<VolumesViewController>().SetView(_water, _oil, _mercury);
+        GetComponentInChildren<VolumesViewController>().SetView(_water);
     }
 }

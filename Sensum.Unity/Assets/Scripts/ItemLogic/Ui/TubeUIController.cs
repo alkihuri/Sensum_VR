@@ -14,8 +14,6 @@ public class TubeUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        water.text = "water : " +  tube._water.GetVolume(); 
-        oil.text = "oil : " + tube._oil.GetVolume();
-        mercury.text = "mercury : " + tube._mercury.GetVolume();
+        water.text = "water : " +  tube._water.GetHeight();
     }
 }
