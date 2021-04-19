@@ -14,13 +14,14 @@ public class TubeItem : MonoBehaviour, Iitem
 
     private void Awake()
     {
-        _water = new Liquid("Water");
+        //_water = new Liquid("Water");
     }
     #endregion
 
-    private void Start()
-    {
-    }
+    //private void Start()
+    //{
+    //    RenderVolume();
+    //}
 
     public void Attach()
     {
@@ -42,13 +43,19 @@ public class TubeItem : MonoBehaviour, Iitem
         throw new System.NotImplementedException();
     }
 
-    private void Update()
-    {
-        RenderVolume();
-    }
+    //private void RenderVolume()
+    //{
+    //    GetComponentInChildren<VolumesViewController>().SetView(_water);
+    //}
+}
 
-    private void RenderVolume()
+public static class VolumeHandler //ХЗ зачем я сюда ивенты добавил, но пусть будут
+{
+    public delegate void OnChangeVolume();
+    public static event OnChangeVolume onChangeVolume;
+    public static void ChangeVolume()
     {
-        GetComponentInChildren<VolumesViewController>().SetView(_water);
+        Debug.Log("changed");
+        onChangeVolume?.Invoke();
     }
 }
