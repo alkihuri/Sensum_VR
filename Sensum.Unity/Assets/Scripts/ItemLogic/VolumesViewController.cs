@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using LiquidVolumeFX;
 public class VolumesViewController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class VolumesViewController : MonoBehaviour
     {
         volume = 3.14f * rad *rad* height;
     }
+
     public void SetView(Liquid water)
     {
         #region тупо хаrд код шляпа, нужен будет нормально рендер но пока и так сойдет
@@ -47,6 +49,20 @@ public class VolumesViewController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
+        }
+    }
+    void OnTriggerEnter(Collision other)
+    {
+        if (other.gameObject.GetComponent<PhysItem>())
+        {
+            addVolumes.Add(other.gameObject.GetComponent<PhysItem>().PreVolume);
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<PhysItem>())
+        {
+            addVolumes.Remove(other.gameObject.GetComponent<PhysItem>().PreVolume);
         }
     }
     private float GetHeightOfElementVolume(float previousVolume,float objectVolume) //находим высоту на которую поднимется жидкость при погружении в неё объекта объёмом Volume

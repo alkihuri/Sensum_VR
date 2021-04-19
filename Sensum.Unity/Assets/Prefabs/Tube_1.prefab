@@ -365,7 +365,7 @@ Transform:
   m_Children:
   - {fileID: 410509510}
   m_Father: {fileID: 6812603415506682401}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1466688136575826298
 MonoBehaviour:
@@ -415,7 +415,6 @@ Transform:
   m_Children:
   - {fileID: 6812603416479999105}
   - {fileID: 6812603415559569278}
-  - {fileID: 6812603415623634281}
   - {fileID: 1766531102}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -434,8 +433,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _volumeOfThisTube: 0
   _waterPreSettings: 0
-  _mercuryPreSettings: 0.224
-  _oilPreSettings: 0
 --- !u!65 &4443068999000486682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -495,64 +492,6 @@ Transform:
   m_Father: {fileID: 6812603415506682401}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6812603415623634282
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6812603415623634281}
-  - component: {fileID: 6812603415623634280}
-  - component: {fileID: 1319220338}
-  m_Layer: 0
-  m_Name: Colliders
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6812603415623634281
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6812603415623634282}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6812603415506682401}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6812603415623634280
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6812603415623634282}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1319220338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6812603415623634282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a0f96592f1da4468a639ce2005a2a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  main: {fileID: 6812603415506682402}
 --- !u!1 &6812603416086978702
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +619,8 @@ MonoBehaviour:
   _luquidGameObject: {fileID: 6812603416086978702}
   _liquidVolume: {fileID: 0}
   _water: {fileID: 6812603416086978702}
-  _tube: {fileID: 0}
+  addVolumes:
+  - 0.008
 --- !u!1 &6812603416479999106
 GameObject:
   m_ObjectHideFlags: 0
