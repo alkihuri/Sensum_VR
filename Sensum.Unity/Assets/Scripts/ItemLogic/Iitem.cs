@@ -24,7 +24,7 @@ public class Liquid
     [SerializeField, Range(1, 10)] float _density;// плотность
     // класс знает только про свой volume, про volume всей пробирки он не знает
     [SerializeField] Color _volumeColor;
-    [SerializeField, Range(10,20)] float height;//см^3
+    [SerializeField, Range(0.1f,0.2f)] float height;//м^3
     public Liquid()
     {
         _density = 997;
@@ -33,14 +33,14 @@ public class Liquid
     }
 
     public float GetHeight(){
-        return height;
+        return height*100;
     }
     public Liquid(string type)
     {
         switch(type)
         {
             case "Water":
-                height = 10;
+                height = 0.1f;
                 _density = 1;
                 _volumeColor = Color.blue;
                 _liquidType = LiquidType.water;
