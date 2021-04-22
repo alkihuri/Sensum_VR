@@ -18,19 +18,19 @@ public class PlayerView : MonoBehaviour
 
     private void Update()
     {
-        //float horizontal = Input.GetAxis("Horizontal");
-        //float vertical = Input.GetAxis("Vertical");
-        //Vector3 direction = new Vector3(horizontal, 0, vertical);
-        //Vector3 velocity = direction * speed;
-        //velocity = camera.TransformDirection(velocity);
-        //cc.Move(velocity * Time.deltaTime);
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 direction = new Vector3(horizontal, 0, vertical);
+        Vector3 velocity = direction * speed;
+        velocity = camera.TransformDirection(velocity);
+        cc.Move(velocity * Time.deltaTime);
     }
-    private void FixedUpdate()
-    {
-        if (Input.GetButton("Fire1"))
-        {
-            Vector3 moveForward = Camera.main.transform.forward;
-            transform.position += moveForward * Time.deltaTime * speed * Time.fixedDeltaTime;
-        }
-    }
+    //    private void FixedUpdate()
+    //    {
+    //        if (Input.GetButton("Fire1"))
+    //        {
+    //            Vector3 moveForward = Camera.main.transform.forward;
+    //            transform.position += moveForward * Time.deltaTime * speed * Time.fixedDeltaTime;
+    //        }
+    //    }
 }

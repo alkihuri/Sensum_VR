@@ -196,10 +196,11 @@ public class GvrEditorEmulator : MonoBehaviour
         // If the MouseControllerProvider is currently active, then don't move the camera.
         if (MouseControllerProvider.IsActivateButtonPressed)
         {
+            Debug.Log("bp");
             return false;
         }
 
-        return Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
+        return Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.RightAlt);
     }
 
     private bool CanChangeRoll()
