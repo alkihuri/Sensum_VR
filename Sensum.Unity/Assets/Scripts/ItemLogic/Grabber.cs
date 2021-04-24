@@ -15,7 +15,7 @@ public class Grabber : MonoBehaviour
     {
         try
         {
-            _Hologram = GetComponentInChildren<Canvas>().gameObject;
+            _Hologram = GetComponentInChildren<TubeUIController>().gameObject;
             isHaveCanvas = true;
         }
         catch
@@ -43,18 +43,12 @@ public class Grabber : MonoBehaviour
             _trigger.triggers.Add(entry3);
 
             EventTrigger.Entry entry4 = new EventTrigger.Entry();
-            entry4.eventID = EventTriggerType.PointerEnter;
-            entry4.callback.AddListener((data) => OnHover());
+            entry4.eventID = EventTriggerType.PointerExit;
+            entry4.callback.AddListener((data) => OnUp());
             _trigger.triggers.Add(entry4);
         }
         rb = GetComponent<Rigidbody>();
         GvrEventExecutor eventExecutor = GvrPointerInputModule.FindEventExecutor();
-        eventExecutor.OnPointerClick += OnItemInterract;
-    }
-
-    void OnItemInterract(GameObject target, PointerEventData eventData)
-    {
-        Debug.Log("Item taked");
     }
 
     public void OnClick()
@@ -78,10 +72,12 @@ public class Grabber : MonoBehaviour
     }
     public void OnHover()
     {
+        Debug.Log("on Hover");
         _Hologram.SetActive(true);
     }
     public void OnUp()
     {
+        Debug.Log("on UP");
         _Hologram.SetActive(false);
     }
 }

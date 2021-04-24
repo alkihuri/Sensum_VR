@@ -11,6 +11,7 @@ public class CanvasButtons : MonoBehaviour
     public PostProcessVolume volume;
     Vignette _vignette;
     private void Start() {
+        volume = FindObjectOfType<PostProcessVolume>();
         volume.profile.TryGetSettings(out _vignette);    
     }
     public void OpenScene(string sceneName){
