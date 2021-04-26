@@ -8,7 +8,7 @@ public class CameraControllerPhotonBlaBla : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Camera>().enabled = !GetComponent<PhotonView>().IsMine;
+        GetComponent<Camera>().enabled = GetComponent<PhotonView>().IsMine;
     }
      
 }

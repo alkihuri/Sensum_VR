@@ -10,7 +10,10 @@ public class ChildObjectFucker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.SetActive(pv.IsMine && mode);
+        if(mode)
+            gameObject.SetActive(pv.IsMine);
+        else
+            gameObject.SetActive(!pv.IsMine);
     }
  
 }

@@ -26,11 +26,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517197396837470270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: -0.100000024, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 7404890539429805342}
-  m_Father: {fileID: 4529077650814155608}
+  m_Father: {fileID: 4529077651447907392}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4563001082057518967
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pv: {fileID: 4971421913616323617}
-  mode: 1
+  mode: 0
 --- !u!114 &7841288007374170569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +110,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.805, z: -3.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 6750759110065968080}
   - {fileID: 4529077651459221761}
   - {fileID: 4529077652295536319}
   m_Father: {fileID: 0}
@@ -246,7 +247,7 @@ GameObject:
   - component: {fileID: 4529077651459221760}
   - component: {fileID: 4529077651459221772}
   - component: {fileID: 4529077651459221771}
-  - component: {fileID: 8096749921352603120}
+  - component: {fileID: 1588961468781638158}
   m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -267,7 +268,7 @@ Transform:
   m_Children:
   - {fileID: 4529077650814155608}
   m_Father: {fileID: 4529077651447907392}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &4529077651459221773
 Camera:
@@ -421,7 +422,7 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
---- !u!114 &8096749921352603120
+--- !u!114 &1588961468781638158
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -430,9 +431,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4529077651459221762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af193ac0e4d8ce84795d52e5a2f1204e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3eec2f16e59be6345acb345deb7c6878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pv: {fileID: 4971421913616323617}
+  mode: 1
 --- !u!95 &6201749292083438278
 Animator:
   serializedVersion: 3
@@ -532,7 +535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1820761120, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1820761120, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 3}
       propertyPath: m_LocalPosition.x
