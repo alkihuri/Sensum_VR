@@ -10,4 +10,8 @@ public class PhysItem : MonoBehaviour
 
     public float PreMass { get => preMass; set => preMass = value; }
     public float PreVolume { get => preVolume; set => preVolume = value; }
+    private void Start()
+    {
+        preVolume = preMass / preDensity;
+    }
 }
