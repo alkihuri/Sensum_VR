@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using LiquidVolumeFX;
+using TMPro;
 public class VolumesViewController : MonoBehaviour
 {
     [SerializeField] GameObject _luquidGameObject;
     [SerializeField] LiquidVolume _liquidVolume;
     Liquid l;
     public List<float> addVolumes = new List<float>();
+    public VolumeHandler _volumeHandler;
+
+    //
+    public TextMeshProUGUI destiny;
+    public TextMeshProUGUI text_volume;
+    public TextMeshProUGUI _mass;
+
+
     //Все данные измеряются в см.
     private float volume;
     private float rad = 0.2f;
@@ -43,12 +52,17 @@ public class VolumesViewController : MonoBehaviour
         }
         #endregion
     }
+    void ChangeUI()
+    {
+        
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<PhysItem>())
         {
             addVolumes.Add(other.gameObject.GetComponent<PhysItem>().PreVolume);
             SetView(l);
+
         }
     }
     private void OnTriggerExit(Collider other)

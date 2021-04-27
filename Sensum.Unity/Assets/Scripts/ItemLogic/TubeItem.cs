@@ -49,13 +49,9 @@ public class TubeItem : MonoBehaviour, Iitem
     //}
 }
 
-public static class VolumeHandler //ХЗ зачем я сюда ивенты добавил, но пусть будут
+public class VolumeHandler //ХЗ зачем я сюда ивенты добавил, но пусть будут
 {
     public delegate void OnChangeVolume();
-    public static event OnChangeVolume onChangeVolume;
-    public static void ChangeVolume()
-    {
-        Debug.Log("changed");
-        onChangeVolume?.Invoke();
-    }
+    public event OnChangeVolume onChangeVolume;
+
 }

@@ -105,6 +105,9 @@ MonoBehaviour:
   _luquidGameObject: {fileID: 2499418985041348252}
   _liquidVolume: {fileID: 2499418985041348248}
   addVolumes: []
+  destiny: {fileID: 0}
+  text_volume: {fileID: 0}
+  _mass: {fileID: 0}
 --- !u!114 &2499418985041348261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _topology: 1
   _detail: 10
-  _level: 0.536
+  _level: 0
   _liquidColor1: {r: 0.25142634, g: 2.3174946, b: 2.2619345, a: 0.48235294}
   _liquidScale1: 0.1
   _liquidColor2: {r: 0.21763763, g: 0.21763763, b: 0.21763763, a: 0.48235294}
@@ -256,6 +259,9 @@ MonoBehaviour:
   _luquidGameObject: {fileID: 2499418985041348252}
   _liquidVolume: {fileID: 2499418985041348248}
   addVolumes: []
+  destiny: {fileID: 0}
+  text_volume: {fileID: 0}
+  _mass: {fileID: 0}
 --- !u!114 &2499418985041348254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f12feb9698b4d048aae67e095e0dcca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Hologram: {fileID: 0}
 --- !u!1 &2499418985187444962
 GameObject:
   m_ObjectHideFlags: 0
