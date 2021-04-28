@@ -4,16 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TubeUIController : MonoBehaviour
 {
-    [SerializeField] Text water;
-    [SerializeField] Text oil;
-    [SerializeField] Text mercury;
+    [SerializeField] Text volume; 
 
-    [SerializeField] TubeItem tube;
+    [SerializeField] VolumesViewController tube;
      
 
     // Update is called once per frame
     void Update()
     {
-        //water.text = "water : " +  tube._water.GetHeight();
+        volume.text = "volume = " + tube._liquidVolume._level.ToString("#.##");
+         
     }
 }

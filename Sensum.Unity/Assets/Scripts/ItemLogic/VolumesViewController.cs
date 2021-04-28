@@ -7,8 +7,8 @@ using TMPro;
 public class VolumesViewController : MonoBehaviour
 {
     [SerializeField] GameObject _luquidGameObject;
-    [SerializeField] LiquidVolume _liquidVolume;
-    Liquid l;
+    [SerializeField] public LiquidVolume _liquidVolume;
+    public Liquid l;
     public List<float> addVolumes = new List<float>();
     public VolumeHandler _volumeHandler;
 

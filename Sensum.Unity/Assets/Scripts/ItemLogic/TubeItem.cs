@@ -7,7 +7,7 @@ public class TubeItem : MonoBehaviour, Iitem
 {
 
     [SerializeField] public Liquid _water;
-    [SerializeField] float _volumeOfThisTube;
+    [SerializeField] public float _volumeOfThisTube;
     [SerializeField, Range(0, 1)] float _waterPreSettings;
 
     #region fields innit part 

@@ -14,6 +14,17 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = false;
         if(!PhotonNetwork.IsConnectedAndReady)
             PhotonNetwork.ConnectUsingSettings();
+        StartCoroutine(ConnectionCheker());
+    }
+
+    IEnumerator ConnectionCheker()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(3);
+            if (!PhotonNetwork.IsConnectedAndReady)
+                PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public override void OnConnectedToMaster()

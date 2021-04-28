@@ -19,15 +19,16 @@ public class PlayerView : MonoBehaviour
 
     private void Update()
     {
-        if (!GetComponent<PhotonView>().IsMine)
-            return;
+        if (GetComponent<PhotonView>())
+            if (!GetComponent<PhotonView>().IsMine)
+                return;
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0, vertical);
         Vector3 velocity = direction * speed;
         velocity = camera.TransformDirection(velocity);
-        cc.Move(velocity * Time.deltaTime);
+        cc.SimpleMove(velocity * Time.deltaTime);
     }
     //    private void FixedUpdate()
     //    {

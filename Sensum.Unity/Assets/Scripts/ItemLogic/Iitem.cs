@@ -24,7 +24,7 @@ public class Liquid
     [SerializeField, Range(1, 10)] float _density;// плотность
     // класс знает только про свой volume, про volume всей пробирки он не знает
     [SerializeField] Color _volumeColor;
-    [SerializeField, Range(0.1f,0.2f)] float height;//м^3
+    [SerializeField, Range(0.1f,0.2f)] public float height;//м^3
     public Liquid()
     {
         _density = 997;

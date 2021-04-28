@@ -6,13 +6,18 @@ using UnityEngine.UI;
 [RequireComponent(typeof(EventTrigger))]
 public class Grabber : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody rb; 
     private EventTrigger _trigger;
     [SerializeField] private GameObject _Hologram;
     private bool isHaveCanvas;
     bool isTaken; //суета, чтобы нельзя было забирать колбу у другого человека.
+    public  Vector3 startOnePosition;
+    public  Quaternion startOneRotation;
+
     void Start()
     {
+        startOnePosition = transform.position;
+        startOneRotation = transform.rotation;
         try
         {
             _Hologram = GetComponentInChildren<TubeUIController>().gameObject;
