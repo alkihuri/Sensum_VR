@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using WPFApp;
+using System.Data;//import this namespace
+
 
 public class CalkulatorScript : MonoBehaviour
 {
@@ -13,9 +14,9 @@ public class CalkulatorScript : MonoBehaviour
     }
     public void GetAnswer()
     {
-        var parser = new ExpressionParser();
         var t = _text.text;
-        _text.text = parser.Execute(t).ToString();
+        string value = new DataTable().Compute(t, null).ToString();
+        _text.text = value;
     }
     public void Clear()
     {
