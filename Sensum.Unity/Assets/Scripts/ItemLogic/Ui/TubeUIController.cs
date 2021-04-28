@@ -12,7 +12,7 @@ public class TubeUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        volume.text = "Объем = " + tube._liquidVolume._level.ToString("##.##");
+        volume.text = "Объем = " + tube.GetComponent<VolumesViewController>().volume.ToString();
          
     }
 }

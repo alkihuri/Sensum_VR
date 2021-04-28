@@ -21,7 +21,7 @@ public class VolumesViewController : MonoBehaviour
 
 
     //Все данные измеряются в см.
-    private float volume;
+    public float volume;
     private float rad = 0.2f;
     private float height = 0.25f;
     private void Awake()
@@ -49,6 +49,7 @@ public class VolumesViewController : MonoBehaviour
             {
                 prevVolume += addVolumes[i];
             }
+            volume = prevVolume;
             float prevVolumeHeight = prevVolume / (3.14f * rad * rad);
             DOTween.To(() => _liquidVolume.level, x => _liquidVolume.level = x, prevVolumeHeight*100f/25f, 1f);
         }
