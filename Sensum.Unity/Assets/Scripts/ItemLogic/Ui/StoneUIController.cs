@@ -8,6 +8,7 @@ public class StoneUIController : MonoBehaviour
     public TextMeshProUGUI des ;
     public TextMeshProUGUI mass;
     public TextMeshProUGUI vol;
+    [SerializeField] GameObject canvas;
     [SerializeField] PhysItem pitem;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,8 @@ public class StoneUIController : MonoBehaviour
         vol.text = "Объем  = " + pitem.preVolume;
 
         mass.text = "Масса = " + pitem.preMass;
+
+        canvas.SetActive(!GetComponent<Rigidbody>().isKinematic);
 
     }
 }

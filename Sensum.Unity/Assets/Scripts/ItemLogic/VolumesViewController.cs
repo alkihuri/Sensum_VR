@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 using LiquidVolumeFX;
 using TMPro;
+using System.Linq;
+
 public class VolumesViewController : MonoBehaviour
 {
     [SerializeField] GameObject _luquidGameObject;
@@ -11,7 +13,7 @@ public class VolumesViewController : MonoBehaviour
     public Liquid l;
     public List<float> addVolumes = new List<float>();
     public VolumeHandler _volumeHandler;
-
+    public List<GameObject> stonesInside = new List<GameObject>();
     //
     public TextMeshProUGUI destiny;
     public TextMeshProUGUI text_volume;
@@ -60,6 +62,9 @@ public class VolumesViewController : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PhysItem>())
         {
+            stonesInside.Add(other.gameObject);
+            FreezeCube(stonesInside.ToList().Last());
+
             addVolumes.Add(other.gameObject.GetComponent<PhysItem>().PreVolume);
             SetView(l);
 
@@ -69,8 +74,38 @@ public class VolumesViewController : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PhysItem>())
         {
+            stonesInside.Remove(other.gameObject);
             addVolumes.Remove(other.gameObject.GetComponent<PhysItem>().PreVolume);
             SetView(l);
         }
     }
+
+
+    #region типа чтобы удерживать камни внутри и отпускать их по нажатию кнопки
+    
+    public void FreezeCube (GameObject cube)
+    {
+        cube.transform.position = transform.position;
+        cube.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
+    public void ReleaseCube(GameObject cube)
+    {
+        if(cube.GetComponent<Grabber>())
+        {
+            cube.transform.position = cube.GetComponent<Grabber>().startOnePosition;
+            cube.transform.rotation = cube.GetComponent<Grabber>().startOneRotation;
+        }
+        cube.GetComponent<Rigidbody>().isKinematic = false;
+    }
+    public void ReleaseAllCubes()
+    {
+        foreach(GameObject go in stonesInside)
+        {
+            ReleaseCube(go);
+        }
+    }
+    
+    #endregion
+
 }
